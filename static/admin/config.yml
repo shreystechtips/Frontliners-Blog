@@ -1,5 +1,7 @@
 backend:
   name: test-repo
+  # name: github
+  # repo: shreystechtips/Support-Notes-Frontliners-Blog
 
 media_folder: static/assets
 public_folder: assets
