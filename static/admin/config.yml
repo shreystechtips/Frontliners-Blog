@@ -1,7 +1,8 @@
 backend:
-  name: test-repo
-  # name: github
-  # repo: shreystechtips/Support-Notes-Frontliners-Blog
+  # name: test-repo
+  name: git-gateway
+  branch: master
+  # repo: shreystechtips/Frontliners-Blog
 
 media_folder: static/assets
 public_folder: assets
