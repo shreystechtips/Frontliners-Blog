@@ -17,6 +17,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-material-ui`,
     `gatsby-plugin-feed-mdx`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -78,7 +79,7 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         // edit below
-        icon: `content/assets/favicon.png`,
+        icon: `content/assets/`,
       },
     },
     {
