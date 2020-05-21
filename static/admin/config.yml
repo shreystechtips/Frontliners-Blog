@@ -2,7 +2,7 @@ backend:
   # name: test-repo
   name: git-gateway
   branch: master
-  # repo: shreystechtips/Frontliners-Blog
+  repo: shreystechtips/Frontliners-Blog
 
 media_folder: static/assets
 public_folder: assets

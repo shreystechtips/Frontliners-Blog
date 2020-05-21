@@ -1,12 +1,13 @@
 module.exports = {
   siteMetadata: {
     // edit below
-    title: `Gatsby Starter Personal Blog`,
-    author: `Kyle Matthews`,
-    description: `A starter personal blog with styled components, dark mode, and Netlify CMS.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: `Support Notes Blog`,
+    author: `Support Notes for Frontliners`,
+    description: `A blog for Support Notes for Frontliners`,
+    siteUrl: `https://blog.notesforfrontliners.org`,
     social: {
-      twitter: `kylemathews`,
+      instagram: `notesforfrontliners`,
+      mainSite: `https://notesforfrontliners.org`,
     },
   },
   plugins: [
@@ -77,7 +78,7 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         // edit below
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/favicon.png`,
       },
     },
     {

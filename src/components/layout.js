@@ -1,79 +1,36 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-
+import { makeStyles, ThemeProvider } from "@material-ui/core/styles"
+import { Typography } from "@material-ui/core"
 import { rhythm, scale } from "../utils/typography"
+import TopBar from "./topbar.js"
+import Center from "react-center"
+import theme from "./palette"
 
-class Layout extends React.Component {
-  render() {
-    const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    const blogPath = `${__PATH_PREFIX__}/`
-    let header
-
-    if (location.pathname === rootPath || location.pathname === blogPath) {
-      header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={location.pathname === blogPath ? `/` : `/`}
-          >
-            {title}
-          </Link>
-        </h1>
-      )
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h3>
-      )
-    }
-    return (
-      <Wrapper>
+const useStyles = makeStyles(theme => ({}))
+function Layout(props) {
+  const { location, title, children } = props
+  const rootPath = `${__PATH_PREFIX__}/`
+  const blogPath = `${__PATH_PREFIX__}/`
+  let header
+  return (
+    <ThemeProvider theme={theme}>
+      <Wrapper style={{ minHeight: "100vh" }}>
+        <TopBar />
         <div
           style={{
             marginLeft: `auto`,
             marginRight: `auto`,
-            maxWidth: rhythm(24),
-            padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+            padding: `0 0`,
           }}
         >
-          <header>{header}</header>
           <main>{children}</main>
         </div>
-        <Footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </Footer>
+        <Footer>© {new Date().getFullYear()}, Built with ♡</Footer>
       </Wrapper>
-    )
-  }
+    </ThemeProvider>
+  )
 }
 
 const Wrapper = styled.div`
