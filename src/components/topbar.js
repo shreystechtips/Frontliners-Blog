@@ -8,7 +8,7 @@ import {
   Button,
 } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-import NoteIcon from "@material-ui/icons/Note"
+import Img from "gatsby-image"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -34,7 +34,16 @@ export default function TopBar(props) {
           className={classes.menuButton}
           style={{ boxShadow: `none`, color: "white" }}
         >
-          <NoteIcon />
+          {/* <NoteIcon /> */}
+          <StaticQuery
+            query={pageQuery}
+            render={data => (
+              <Img
+                fluid={data.indexImage.childImageSharp.fluid}
+                style={{ width: 30 }}
+              />
+            )}
+          />
         </IconButton>
         <Typography
           to="/"
@@ -46,17 +55,7 @@ export default function TopBar(props) {
           Support Frontliners Blog
         </Typography>
         <StaticQuery
-          query={graphql`
-            query {
-              site {
-                siteMetadata {
-                  social {
-                    mainSite
-                  }
-                }
-              }
-            }
-          `}
+          query={pageQuery}
           render={data => (
             <Button
               onClick={() => {
@@ -77,3 +76,22 @@ export default function TopBar(props) {
     </AppBar>
   )
 }
+
+export const pageQuery = graphql`
+  query {
+    indexImage: file(relativePath: { eq: "logo512-white.png" }) {
+      childImageSharp {
+        fluid(quality: 100, maxWidth: 600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        social {
+          mainSite
+        }
+      }
+    }
+  }
+`

@@ -25,11 +25,13 @@ const useStyles = theme => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: "40px",
+    marginBottom: "10px",
     // backgroundColor: "black",
   },
   root: {
     flexGrow: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   paper: {
     padding: theme.spacing(2),
@@ -61,6 +63,7 @@ class Blog extends React.Component {
               alignItems: "center",
               height: "100%",
               filter: "brightness(150%)",
+              borderBottom: "5px solid #08808E",
             }}
           >
             {/* <Typography
@@ -139,7 +142,7 @@ export const pageQuery = graphql`
     }
     indexImage: file(relativePath: { eq: "Notes-Image.jpeg" }) {
       childImageSharp {
-        fluid {
+        fluid(quality: 100, maxWidth: 2000) {
           ...GatsbyImageSharpFluid
         }
       }
