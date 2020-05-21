@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql, StaticQuery } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 import {
   AppBar,
   Typography,
@@ -24,6 +24,24 @@ const useStyles = makeStyles(theme => ({
 
 export default function TopBar(props) {
   const classes = useStyles()
+  const data = useStaticQuery(graphql`
+    query {
+      indexImage: file(relativePath: { eq: "logo512-white.png" }) {
+        childImageSharp {
+          fluid(quality: 100, maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      site {
+        siteMetadata {
+          social {
+            mainSite
+          }
+        }
+      }
+    }
+  `)
   return (
     <AppBar position="static">
       <Toolbar>
@@ -35,14 +53,9 @@ export default function TopBar(props) {
           style={{ boxShadow: `none`, color: "white" }}
         >
           {/* <NoteIcon /> */}
-          <StaticQuery
-            query={pageQuery}
-            render={data => (
-              <Img
-                fluid={data.indexImage.childImageSharp.fluid}
-                style={{ width: 30 }}
-              />
-            )}
+          <Img
+            fluid={data.indexImage.childImageSharp.fluid}
+            style={{ width: 30 }}
           />
         </IconButton>
         <Typography
@@ -54,44 +67,20 @@ export default function TopBar(props) {
         >
           Support Frontliners Blog
         </Typography>
-        <StaticQuery
-          query={pageQuery}
-          render={data => (
-            <Button
-              onClick={() => {
-                window.open(data.site.siteMetadata.social.mainSite)
-              }}
-              color="inherit"
-              style={{
-                textDecoration: `none`,
-                boxShadow: `none`,
-                color: "white",
-              }}
-            >
-              Main Site
-            </Button>
-          )}
-        />
+        <Button
+          onClick={() => {
+            window.open(data.site.siteMetadata.social.mainSite)
+          }}
+          color="inherit"
+          style={{
+            textDecoration: `none`,
+            boxShadow: `none`,
+            color: "white",
+          }}
+        >
+          Main Site
+        </Button>
       </Toolbar>
     </AppBar>
   )
 }
-
-export const pageQuery = graphql`
-  query {
-    indexImage: file(relativePath: { eq: "logo512-white.png" }) {
-      childImageSharp {
-        fluid(quality: 100, maxWidth: 600) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    site {
-      siteMetadata {
-        social {
-          mainSite
-        }
-      }
-    }
-  }
-`
