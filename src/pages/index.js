@@ -20,16 +20,15 @@ import Center from "react-center"
 const useStyles = theme => ({
   landingTop: {
     minHeight: 100,
-    height: "50vh",
-    maxHeight: 300,
+    height: "40vh",
+    maxHeight: 500,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: "10px",
-    // backgroundColor: "black",
   },
   root: {
-    flexGrow: 1,
+    // flexGrow: 1,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -38,8 +37,10 @@ const useStyles = theme => ({
     textAlign: "center",
     color: theme.palette.text.secondary,
     borderRadius: 20,
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: theme.palette.dark,
-    maxWidth: 300,
+    maxWidth: 400,
   },
 })
 
@@ -79,40 +80,42 @@ class Blog extends React.Component {
         </div>
         <div id="content" style={{ padding: `0 ${rhythm(3 / 4)}` }}>
           <Bio />
-          <div style={{ margin: "20px 0 40px" }} className={classes.root}>
-            <Grid container spacing={3}>
-              {posts.map(({ node }) => {
-                const title = node.frontmatter.title || node.fields.slug
-                return (
-                  <Grid item>
-                    <Paper elevation={4} className={classes.paper}>
-                      <div key={node.fields.slug}>
-                        <h3
-                          style={{
-                            marginBottom: rhythm(1 / 4),
-                          }}
-                        >
-                          <Link
-                            style={{ boxShadow: `none` }}
-                            to={`${node.fields.slug}`}
+          <Center>
+            <div style={{ margin: "20px 0 40px 0" }} className={classes.root}>
+              <Grid container spacing={3}>
+                {posts.map(({ node }) => {
+                  const title = node.frontmatter.title || node.fields.slug
+                  return (
+                    <Grid item>
+                      <Paper elevation={4} className={classes.paper}>
+                        <div key={node.fields.slug}>
+                          <h3
+                            style={{
+                              marginBottom: rhythm(1 / 4),
+                            }}
                           >
-                            {title}
-                          </Link>
-                        </h3>
-                        <small>{node.frontmatter.date}</small>
-                        <p
-                          dangerouslySetInnerHTML={{
-                            __html:
-                              node.frontmatter.description || node.excerpt,
-                          }}
-                        />
-                      </div>
-                    </Paper>
-                  </Grid>
-                )
-              })}
-            </Grid>
-          </div>
+                            <Link
+                              style={{ boxShadow: `none` }}
+                              to={`${node.fields.slug}`}
+                            >
+                              {title}
+                            </Link>
+                          </h3>
+                          <small>{node.frontmatter.date}</small>
+                          <p
+                            dangerouslySetInnerHTML={{
+                              __html:
+                                node.frontmatter.description || node.excerpt,
+                            }}
+                          />
+                        </div>
+                      </Paper>
+                    </Grid>
+                  )
+                })}
+              </Grid>
+            </div>
+          </Center>
         </div>
       </Layout>
     )
