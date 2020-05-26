@@ -9,7 +9,7 @@ When we delivered the first supply of 40 notes to the Overlake Medical Center, w
 
 > A member of the Intensive Care Unit exclaimed to us, "Thank you for your thoughtful messages, we are so grateful to serve!"
 
-![Members of the intensive care unit reading the messages!](assets/overlake-medical-workers-with-notes.png "Members of the intensive care unit reading the messages!")
+![Members of the intensive care unit reading the messages!](../assets/overlake-medical-workers-with-notes.png "Members of the intensive care unit reading the messages!")
 
 In these dire times, with many finding isolation to be difficult to maintain, it is very important that we remember that the medical community is taking risky steps in order to ensure our physical health. The stress they endure to provide others with a sense of peace amid the calamity is something that must be recognized.
 
@@ -19,4 +19,4 @@ This quote by another member of the Intensive Care Unit summarizes the potential
 
 Don't forget to write some more notes! We'll catch you guys up on our future deliveries~
 
-![Support notes being distributed to more workers!](assets/overlake-more-notes-.jpg "Support notes being distributed to more workers!")
+![Support notes being distributed to more workers!](../assets/overlake-more-notes-.jpg "Support notes being distributed to more workers!")
